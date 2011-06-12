@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94A8B3C7-0D3F-4A2F-80AA-E8FC081800CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AlienInvasion.Client</RootNamespace>
+    <AssemblyName>AlienInvasion.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlienInvaders\AlienInvader.cs" />
+    <Compile Include="Cities\Amsterdam.cs" />
+    <Compile Include="Cities\Berlin.cs" />
+    <Compile Include="Cities\Gineva.cs" />
+    <Compile Include="Cities\London.cs" />
+    <Compile Include="Cities\Paris.cs" />
+    <Compile Include="Cities\Rome.cs" />
+    <Compile Include="CompetitorType.cs" />
+    <Compile Include="DefenceAssets\Peashooter1000Blaster.cs" />
+    <Compile Include="ICity.cs" />
+    <Compile Include="DefenceAssets\ObliteratorCannon.cs" />
+    <Compile Include="KnownCities.cs" />
+    <Compile Include="ServerCommand.cs" />
+    <Compile Include="AlienInvader.cs" />
+    <Compile Include="DefenceAssets\Peashooter500Blaster.cs" />
+    <Compile Include="FlyingSaucerSize.cs" />
+    <Compile Include="DefenceAssets\DefenceAsset.cs" />
+    <Compile Include="AlienInvaders\IAlienInvader.cs" />
+    <Compile Include="IEarthDefender.cs" />
+    <Compile Include="AlienInvasionWave.cs" />
+    <Compile Include="InvasionBriefing.cs" />
+    <Compile Include="InvasionRunner.cs" />
+    <Compile Include="IDefenceStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SymmetricEncryption.cs" />
+    <Compile Include="WebAction.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>if /I "$(ConfigurationName)" == "Release" Eazfuscator.NET.exe "$(TargetPath)" --msbuild-project-path "$(ProjectPath)" --msbuild-project-configuration "$(ConfigurationName)" --msbuild-project-platform "$(PlatformName)" --msbuild-solution-path "$(SolutionPath)" -n --newline-flush -v 3.0</PostBuildEvent>
+  </PropertyGroup>
+</Project>
